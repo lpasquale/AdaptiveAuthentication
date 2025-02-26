@@ -1,0 +1,714 @@
+;;Fuzzy Goals
+(declare-fun AdapAuthR () Real)
+(declare-fun Security () Real)
+(declare-fun Usability () Real)
+(declare-fun Performance() Real)
+
+;;AdapAuthR = Security && Usability && Performance 
+(assert (and (<= AdapAuthR 
+             (ite (<= Security Usability) 
+                  (ite (<= Security Performance) Security  Performance) 
+                  (ite (<= Usability Performance) Usability Performance)))))
+
+
+(declare-fun AvgPerformance() Real)
+(declare-fun AVGPerforSum() Real)
+(declare-fun  PerforSum () Real)
+
+(assert (and (<= 0 AdapAuthR ) (<= AdapAuthR 1)))
+(assert (and (<= 0 Security ) (<= Security 1)))
+(assert (and (<= 0 Usability) (<= Usability 1))) 
+(assert (and (<= 0 Performance) (<= Performance 1)))
+(assert (and (<= 0 AvgPerformance) (<= AvgPerformance 1)))
+(assert (and (<= 0 AVGPerforSum  ) (<= AVGPerforSum   1)))
+
+;;Fuzzy Security Goals
+(declare-fun  Authenticity() Real)
+(declare-fun  Confidentiality () Real)
+(declare-fun  Integrity () Real)
+
+;;Security = Authenticity && Confidentiality && Integrity 
+(assert (and (<= Security 
+             (ite (<= Authenticity Confidentiality) 
+                  (ite (<= Authenticity Integrity) Authenticity  Integrity) 
+                  (ite (<= Confidentiality Integrity) Confidentiality Integrity)))))
+
+(declare-fun  AvgAuthenticity() Real)
+(declare-fun  AvgConfidentiality () Real)
+(declare-fun  AvgIntegrity () Real)
+(declare-fun  AuthentPriority () Real)
+(declare-fun  ConfPriority  () Real)
+(declare-fun  IntegPriority () Real)
+(declare-fun  PerformancePriority () Real)
+
+(declare-fun  SumInteg () Real)
+(declare-fun  AVGSumInteg () Real)
+(declare-fun  SumConf () Real)
+(declare-fun  AVGSumConf () Real)
+(declare-fun  SumAuth () Real)
+(declare-fun  AVGSumAuth () Real)
+
+
+
+;;Fuzzy Security Goals
+(assert (and (<= 0 Authenticity) (<= Authenticity 1)))
+(assert (and (<= 0 Confidentiality) (<= Confidentiality 1)))
+(assert (and (<= 0 Integrity) (<= Integrity 1)))
+
+(assert (and (<= 0 AvgAuthenticity) (<= AvgAuthenticity 1)))
+(assert (and (<= 0 AvgConfidentiality) (<= AvgConfidentiality 1)))
+(assert (and (<= 0 AvgIntegrity) (<= AvgIntegrity 1)))
+
+(assert (and (<= 0 AuthentPriority) (<= AuthentPriority 1)))
+(assert (and (<= 0 ConfPriority) (<= ConfPriority 1)))
+(assert (and (<= 0 IntegPriority) (<= IntegPriority 1)))
+(assert (and (<= 0 PerformancePriority) (<= PerformancePriority 1)))
+
+(assert (and (<= 0 AVGSumInteg) (<= AVGSumInteg 1)))
+
+
+
+(assert (and (<= 0 AVGSumAuth ) (<= AVGSumAuth  1)))
+
+
+(assert (and (<= 0 AVGSumConf ) (<= AVGSumConf 1)))
+
+
+
+;;Fuzzy usability Goals
+(declare-fun  Effectiveness  () Real)
+(declare-fun  Efficiency () Real)
+
+(declare-fun  AvgEfficiency () Real)
+(declare-fun  AvgEffectiveness  () Real)
+
+(declare-fun  EffectPriority  () Real)
+(declare-fun  EfficPriority () Real)
+(declare-fun  EfficSum () Real)
+(declare-fun  AVGEfficSum () Real)
+(declare-fun  EffetSum () Real)
+(declare-fun  AVGEffetSum () Real)
+
+;;Fuzzy usability Goals
+(assert (and (<= 0 Effectiveness) (<= Effectiveness 1)))
+(assert (and (<= 0 Efficiency) (<= Efficiency 1)))
+
+(assert (and (<= 0 AvgEffectiveness) (<= AvgEffectiveness 1)))
+(assert (and (<= 0 AvgEfficiency) (<= AvgEfficiency 1)))
+
+(assert (and (<= 0 EffectPriority) (<= EffectPriority 1)))
+(assert (and (<= 0 EfficPriority) (<= EfficPriority 1)))
+
+
+(assert (and (<= 0 AVGEfficSum  ) (<= AVGEfficSum  1)))
+
+(assert (and (<= 0 AVGEffetSum  ) (<= AVGEffetSum  1)))
+
+;;Utility
+(declare-fun Utility () Real)
+(assert (and (<= 0 Utility) (<= Utility 1)))
+(declare-fun count() Real)  
+	     
+                            
+;;Usability = Effectiveness && Efficiency
+(assert (and (<= Usability (ite (<= Effectiveness  Efficiency)  Effectiveness   Efficiency))))
+
+
+
+;; Fuzzy contextual factor (Value,Presence) 
+(declare-fun NodeMovement() Real)
+(declare-fun V2Vtopology () Real)
+(declare-fun V2Rtopology () Real)
+(declare-fun V2Itopology () Real)
+(declare-fun RoadTrafficInfo () Real)
+(declare-fun DistanceInfo () Real)
+(declare-fun PatientInfo () Real) 
+(declare-fun AmbulanceJunction () Real) 
+(declare-fun NightTime () Real)
+
+(assert (or (=  NodeMovement 0) (= NodeMovement 1)))
+(assert (or (=  V2Vtopology  0) (= V2Vtopology  1)))
+(assert (or (=  V2Rtopology 0) (= V2Rtopology 1)))
+(assert (or (=  V2Itopology 0) (= V2Itopology 1)))
+(assert (or (=  RoadTrafficInfo 0) (= RoadTrafficInfo 1)))
+(assert (or (=  DistanceInfo 0) (= DistanceInfo 1)))
+(assert (or (=  PatientInfo 0) (= PatientInfo 1)))
+(assert (or (=  AmbulanceJunction 0) (= AmbulanceJunction 1)))
+(assert (or (=  NightTime 0) (= NightTime 1)))
+
+(declare-fun CredType () Real)
+(declare-fun SomeKnow() Real)
+(declare-fun SomeHave () Real)
+(declare-fun Signature () Real)
+(declare-fun SomeAre() Real)
+(declare-fun TwoFactor() Real)
+(declare-fun PassStr() Real)
+(declare-fun PinLeng() Real)
+(declare-fun OtpLeng() Real)
+
+(declare-fun Certificate () Real)
+(declare-fun PlateLicense() Real)
+(declare-fun SmartCard () Real)
+(declare-fun Token () Real)
+(declare-fun Face () Real)
+(declare-fun Iris() Real)
+(declare-fun Fingerprint() Real) 
+(declare-fun SignCryp () Real)
+(declare-fun GroupSign() Real)
+(declare-fun RingSign () Real)
+
+;; setup the count variable
+(assert (ite (> TwoFactor 0) (= count 2) (= count 1)))
+
+;; CRISP Authentication Methods
+(assert (or (=  Certificate 0) (= Certificate 1)))
+(assert (or (=  PlateLicense 0) (= PlateLicense 1)))
+(assert (or (=  SmartCard 0) (= SmartCard 1)))
+(assert (or (=  Token 0) (= Token 1)))
+(assert (or (=  Face 0) (= Face 1)))
+(assert (or (=  Iris 0) (= Iris 1)))
+(assert (or (=  Fingerprint 0) (= Fingerprint 1)))
+(assert (or (=  SignCryp 0) (= SignCryp 1)))
+(assert (or (=  GroupSign 0) (= GroupSign 1)))
+(assert (or (=  RingSign 0) (= RingSign 1)))
+(declare-fun CredRnew () Real)
+(declare-fun CredRnewFactor () Real)
+
+;; FUZZY Authentication Methods
+(assert (and (< 0 CredType) (<= CredType 1)))
+(assert (and (<= 0 SomeKnow) (<=  SomeKnow 1)))
+(assert (and (<= 0 SomeHave) (<= SomeHave 1)))
+(assert (and (<= 0 Signature) (<= Signature 1)))
+(assert (and (<= 0 SomeAre) (<= SomeAre 1)))
+(assert (and (<= 0 TwoFactor) (<= TwoFactor 1)))
+
+;; PassStr= short(0.5) || medium (0.7) ||  Long(1.0)
+(assert (or (=  PassStr 0.0) (=  PassStr 0.5) (= PassStr 0.7) (= PassStr 1.0)))
+
+;; PinLeng= short(0.5) || medium (0.7) ||  Long(1.0)
+(assert (or (=  PinLeng 0.0) (=  PinLeng 0.5) (= PinLeng 0.7) (= PinLeng 1.0)))
+;; OtpLeng= short(0.5) || medium (0.7) ||  Long(1.0)
+(assert (or (=  OtpLeng 0.0) (=  OtpLeng 0.5) (= OtpLeng 0.7) (= OtpLeng 1.0)))
+ 
+;;;;;;;;;;;;;;;;;;;;Authentication methods;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;Assign value to CredType;;;;;;;;;;
+(assert (= CredType (ite (> TwoFactor 0) TwoFactor
+                          (ite (>= SomeKnow SomeHave)
+                               (ite (>= SomeKnow  SomeAre) SomeKnow SomeAre) 
+                               (ite (>= SomeHave SomeAre) SomeHave SomeAre)) 
+)))
+
+
+;;TwoFactor =  Select two from (SomeKnow, SomeHave, SomeAre)
+(assert (ite (and (> SomeKnow 0) (> SomeHave 0))
+             (and (> TwoFactor 0) (= SomeAre 0)) true))
+
+(assert (ite (and (> SomeAre 0) (> SomeHave 0))
+             (and (> TwoFactor 0) (= SomeKnow 0)) true))
+
+(assert (ite (and (> SomeAre 0) (> SomeKnow 0))
+             (and (> TwoFactor 0) (= SomeHave 0)) true))
+
+(assert (ite (> TwoFactor 0) (or (and (> SomeAre 0) (> SomeHave 0) (= SomeKnow 0)) (and (> SomeHave 0) (> SomeKnow 0) (= SomeAre 0)) (and (> SomeKnow 0) (> SomeAre 0) (= SomeHave 0))) true))
+
+;;TwoFactor value = Max(1, MAX(SomeKnow,SomeHave,SomeAre) + 0.2)
+(assert (ite (and (> SomeKnow 0) (> SomeHave 0)) 
+              (= TwoFactor (ite (> SomeKnow SomeHave) (ite (< SomeKnow 0.8) (+ SomeKnow 0.2) 1) (ite (< SomeHave 0.8) (+ SomeHave 0.2) 1)) ) true))
+
+(assert (ite (and (> SomeAre 0) (> SomeHave 0)) 
+              (= TwoFactor (ite (> SomeAre SomeHave) (ite (< SomeAre 0.8) (+ SomeAre 0.2) 1) (ite (< SomeHave 0.8) (+ SomeHave 0.2) 1)) ) true))
+
+
+(assert (ite (and (> SomeAre 0) (> SomeKnow 0)) 
+              (= TwoFactor (ite (> SomeAre SomeKnow) (ite (< SomeAre 0.8) (+ SomeAre 0.2) 1) (ite (< SomeKnow 0.8) (+ SomeKnow 0.2) 1)) ) true))
+
+
+;;if TwoFactor = 0 then Choose one between (SomeKnow, SomeHave, SomeAre)
+(assert (ite (and (= TwoFactor 0) (> SomeKnow 0)) (and (= SomeAre 0) (= SomeHave 0)) true))
+(assert (ite (and (= TwoFactor 0) (> SomeHave 0)) (and (= SomeAre 0) (= SomeKnow 0)) true))
+(assert (ite (and (= TwoFactor 0) (> SomeAre 0)) (and (= SomeKnow 0) (= SomeHave 0)) true))
+
+;;SomeKnow = MAX (PinLeng,PassStr,OtpLeng)
+(assert (= SomeKnow (ite (>= PinLeng PassStr)
+                    (ite (>= PinLeng OtpLeng) PinLeng OtpLeng )
+                    (ite (>= PassStr OtpLeng) PassStr OtpLeng ))))
+
+;; Choose only one from (PinLeng,PassStr,OtpLeng)
+(assert (ite (> PinLeng 0) (and (= PassStr 0) (= OtpLeng 0)) true))
+(assert (ite (> PassStr 0) (and (= PinLeng 0) (= OtpLeng 0)) true))
+(assert (ite (> OtpLeng 0) (and (= PassStr 0) (= PinLeng 0)) true))
+
+;;SomeHave = MAX (PlateLicense,Certificate, SmartCard, Signature)  
+(assert (= SomeHave (ite (>= PlateLicense Certificate) 
+                         (ite (>= PlateLicense SmartCard)
+                              (ite (>= PlateLicense Signature) PlateLicense Signature) 
+                              (ite (>= SmartCard Signature) SmartCard Signature)) 
+	            (ite (>= Certificate SmartCard) 
+		         (ite (>= Certificate Signature) Certificate Signature) 
+	                 (ite (>= SmartCard  Signature) SmartCard Signature)))))    
+
+
+;; Choose only one from (PlateLicense,Certificate, SmartCard, Signature)
+(assert (ite (> PlateLicense 0) (and (= Certificate 0) (= SmartCard 0) (= Signature 0)) true))
+
+(assert (ite (> Certificate 0) (and (= PlateLicense 0) (= SmartCard 0) (= Signature 0)) true))
+
+(assert (ite (> SmartCard 0) (and (= PlateLicense 0) (= Certificate 0) (= Signature 0)) true))
+
+(assert (ite (> Signature 0) (and (= PlateLicense 0) (= Certificate 0) (= SmartCard 0)) true))
+
+
+;;Signature = MAX (Token,SignCryp, GroupSign, RingSign)
+(assert (= Signature (ite (>= Token SignCryp )
+                          (ite (>= Token  GroupSign)
+                               (ite (>= Token  RingSign ) Token  RingSign) 
+                               (ite (>= GroupSign   RingSign ) GroupSign RingSign)) 
+		    (ite (>= SignCryp GroupSign) 
+	                 (ite (>= SignCryp  RingSign) SignCryp  RingSign) 
+	                 (ite (>= GroupSign RingSign) GroupSign RingSign))
+)))
+
+
+;; Choose only one between (Token, SignCryp, GroupSign, RingSign)
+(assert (ite (> Token 0) (and (= SignCryp 0) (= GroupSign 0) (= RingSign 0)) true))
+
+(assert (ite (> SignCryp 0) (and (= Token 0) (= GroupSign 0) (= RingSign 0)) true))
+
+(assert (ite (> GroupSign 0) (and (= Token 0) (= SignCryp 0) (= RingSign 0)) true))
+
+(assert (ite (> RingSign 0) (and (= Token 0) (= SignCryp 0) (= GroupSign 0)) true))
+
+
+;;SomeAre = MAX (Face,Iris,Fingerprint)
+(assert (= SomeAre (ite (>= Face Iris)
+                        (ite (>= Face Fingerprint) Face Fingerprint)
+                        (ite (>= Iris Fingerprint) Iris Fingerprint ))))
+
+;;;;Choose only one between (Face,Iris,Fingerprint)               
+(assert (ite (> Face 0) (and (= Iris 0) (= Fingerprint 0)) true))
+(assert (ite (> Iris 0) (and (= Face 0) (= Fingerprint 0)) true))
+(assert (ite (> Fingerprint 0) (and (= Face 0) (= Iris 0)) true))
+
+;;Automation level
+(declare-fun AutoLevel () Real)
+
+;; AutoLevel = Not-Automated (0)|| semi-Automated (0.5) || FullAutomated(1.0)
+;; PIN&Password&OTP are not automated 
+(assert (ite (or (> PinLeng 0) (> PassStr 0) (> OtpLeng 0)) (= AutoLevel 0) 
+        (ite (or (> Token 0) (> SmartCard 0) (> Fingerprint 0)(> Face 0)(> Iris 0) (> SignCryp 0) (> GroupSign 0)
+           (> RingSign 0)) (= AutoLevel 0.5) 
+              (= AutoLevel 1) )))
+
+;;;; CredRnew => (Face&Iris&Fingerprint are not Renewal(0) || Daily(0.90) || Weekly(0.50) || Monthly(0.30) || Yearly(0.10) )
+
+(assert (ite (> SomeKnow 0)  
+                  (or (= CredRnew  0.90) (= CredRnew 0.50) (= CredRnew 0.30) (= CredRnew 0.10))    
+                  (= CredRnew  0)))
+
+
+;; DevType
+;;(declare-fun DevType () Real)
+(declare-fun PC () Real)
+(declare-fun LapTop () Real)
+(declare-fun Phone () Real)
+(declare-fun Reader () Real)
+(declare-fun Camera () Real)
+(declare-fun Scanner () Real)
+
+(assert (or (=  PC 0) (= PC 1)))
+(assert (or (=  LapTop 0) (= LapTop 1)))
+(assert (or (=  Reader 0) (= Reader 1)))
+(assert (or (=  Phone 0) (= Phone 1)))
+(assert (or (=  Camera 0) (= Camera 1)))
+(assert (or (=  Scanner 0) (= Scanner 1)))
+
+;; DevType (PC,LapTop,Phone,Reader, Camera, Scanner)               
+(assert (ite (or (> PinLeng 0) (> PassStr 0) (> OtpLeng 0) (> Certificate 0) (> Token 0) (> SignCryp 0) (> GroupSign 0) (> RingSign 0))  (or (> PC 0) (> LapTop 0) (> Phone 0)) true))  
+
+(assert (ite (or  (> Face 0) (> Iris 0) (> PlateLicense 0)) (> Camera 0) true ))
+(assert (ite  (>  Fingerprint 0)   (> Scanner 0) true ))
+(assert (ite  (>  SmartCard  0)    (> Reader 0)  true )) 
+
+
+
+;;;;;;;;;;;;;;;;;;Impact on the requirements;;;;;;;;;;;;;;;;;;
+
+;; SUM (authentication methods  impact on the Confidentiality psitive (0.5) very positively (0.8) , negative (0.3), very negative(0.1) and not impact (0)                                                                                                                           
+(assert (= SumConf (+ (* PinLeng  0.5) 
+                               (* PassStr 0.5)
+                               (* OtpLeng 0.5) 
+                               (* PlateLicense 0.4)
+                               (* Certificate 0.8)
+                               (* SmartCard 0.6)
+                               (* Token 0.8)
+                               (* SignCryp 0.8)
+                               (* GroupSign 0.8)
+                               (* RingSign 0.8 )
+                               (* Iris 0.8)
+                               (* Face 0.8)
+                               (* Fingerprint 0.8) ) 
+                                  ))
+
+;; Avg Sum Confidentiality                              
+;;(assert (= AVGSumConf (/ SumConf  count) )) 
+
+(assert (ite (> count 1)
+		(ite (> SumConf 1) (= AVGSumConf 1) (= AVGSumConf SumConf))
+		(= AVGSumConf SumConf) ))
+
+
+;; Credential Renewal Discount Factor
+(assert (= CredRnewFactor  (/ (- 1 CredRnew) 2))) 
+
+;; the impact of  CredRnew on the Confidentiality 
+(assert (ite (> SomeKnow 0)
+             (ite (>= AVGSumConf CredRnew)
+                  (= AvgConfidentiality (ite (> 0 (- AVGSumConf CredRnewFactor)) 0 (- AVGSumConf CredRnewFactor)))
+                  (= AvgConfidentiality (ite (> 1 (+ AVGSumConf CredRnewFactor)) (+ AVGSumConf CredRnewFactor) 1))) true))  
+
+(assert (ite (= SomeKnow 0) (= AvgConfidentiality AVGSumConf) true))
+
+;;; SUM (authentication methods  impact on the Authenticity positive (0.5) very positively (0.8) , negative (0.3), very negative(0.1) and not impact (0)                                                           
+(assert (= SumAuth (+ (* PinLeng 0.1) 
+                      (* PassStr 0.1)  
+                      (* OtpLeng 0.1) 
+                      (* PlateLicense 0.5)
+                      (* Certificate 0.8 )
+                      (* SmartCard 0.5 )
+                      (* Token  0.5)
+                      (* SignCryp 0.8)
+                      (* GroupSign 0.8)
+                      (* RingSign 0.8)
+                      (* Iris  0.5)
+                      (* Face 0.5)
+                      (* Fingerprint 0.5))
+                                  )) 
+                                  
+;; Avg Authenticity                                   
+;;(assert (= AVGSumAuth  (/ SumAuth  count) )) 
+
+(assert (ite (> count 1) 
+		(ite (> SumAuth 1) (= AVGSumAuth 1) (= AVGSumAuth SumAuth)) (= AVGSumAuth SumAuth) ))
+
+
+                                                                   
+;; SUM(authentication methods  impact on the Integrity psitive (0.5) very positively (0.8) , negative (0.3), very negative(0.1) and not impact (0)              
+         
+ (assert (= SumInteg (+ (* PinLeng  0.5) 
+                               (* PassStr 0.5)
+                               (* OtpLeng 0.5) 
+                               (* PlateLicense 0.4)
+                               (* Certificate 0.8)
+                               (* SmartCard 0.6)
+                               (* Token 0.8)
+                               (* SignCryp 0.8)
+                               (* GroupSign 0.8)
+                               (* RingSign 0.8 )
+                               (* Iris 0.8)
+                               (* Face 0.8)
+                               (* Fingerprint 0.8) )
+                                  )) 
+
+ ;; AvgIntegrity                                   
+ ;;(assert (= AVGSumInteg (/ SumInteg  count) ))  
+
+(assert (ite (> count 1) 
+		(ite (> SumInteg 1) (= AVGSumInteg 1) (= AVGSumInteg SumInteg)) 
+		(= AVGSumInteg SumInteg) ))
+
+
+                      
+ ;; the impact of  CredRnew on the Integrity  
+;; the impact of  CredRnew on the Confidentiality 
+(assert (ite (> SomeKnow 0)
+             (ite (>= AVGSumInteg CredRnew)
+                  (= AvgIntegrity (ite (> 0 (- AVGSumInteg CredRnewFactor)) 0 (- AVGSumInteg CredRnewFactor)))
+                  (= AvgIntegrity (ite (> 1 (+ AVGSumInteg CredRnewFactor)) (+ AVGSumInteg CredRnewFactor) 1))) true))         
+                                  
+
+;;SUM (authentication methods  impact on the Efficiency psitive (0.5) very positively (0.8) , negative (0.3), very negative(0.1) and not impact (0)                          
+(assert (<= EfficSum  (+ (* PinLeng 0.3)
+                              (* PassStr 0.3)
+                              (* OtpLeng 0.3) 
+                              (* PlateLicense 0.8)
+                              (* Certificate 0.1)
+                              (* SmartCard 0.6)
+                              (* Token 0.5)
+                              (* SignCryp 0.1)
+                              (* GroupSign 0.1)
+                              (* RingSign 0.1)
+                              (* Iris 0.5)
+                              (* Face 0.5)
+                              (* Fingerprint 0.5)  )
+                                  ))
+                                  
+ ;; Avg Efficiency                                   
+ (assert (= AVGEfficSum (/ EfficSum  count) ))
+ 
+;; AvgEfficiency =MAX (AVGEfficSum , AutoLevel)                                         
+ (assert  (ite (> AVGEfficSum AutoLevel) 
+               (= AvgEfficiency AVGEfficSum)                                                
+               (= AvgEfficiency AutoLevel)))
+
+
+;; SUM (authentication methods  impact on the Effectiveness psitive (0.5) very positively (0.8) , negative (0.3), very negative(0.1) and not impact (0)                          
+(assert (<= EffetSum  (+ (* PinLeng 0.1)
+                                 (* PassStr 0.1)
+                                 (* OtpLeng 0.1) 
+                                 (* PlateLicense 0.8)
+                                 (* Certificate 0.4)
+                                 (* SmartCard 0.6)
+                                 (* Token 0.5)
+                                 (* SignCryp 0.8)
+                                 (* GroupSign 0.8)
+                                 (* RingSign 0.8)
+                                 (* Iris 0.5)
+                                 (* Face 0.5)
+                                 (* Fingerprint 0.5) )
+                                  )) 
+
+;; Avg Effectiveness                                   
+ (assert (= AVGEffetSum  (/ EffetSum  count) ))
+
+;;AvgEffectiveness =MAX(AVGEffetSum ,(- 1 CredRnew), AutoLevel )
+(assert  (ite (>= AVGEffetSum (-  1 CredRnew))
+              (ite (>= AVGEffetSum  AutoLevel) 
+                   (= AvgEffectiveness AVGEffetSum) 
+                   (= AvgEffectiveness AutoLevel))
+              (ite (>= (-  1 CredRnew)  AutoLevel) 
+                   (= AvgEffectiveness (-  1 CredRnew)) 
+                   (= AvgEffectiveness AutoLevel))
+))
+
+;; SUM (authentication methods impact on the Performance psitive (0.5) very positively (0.8) , negative (0.3), very negative(0.1) and not impact (0)                          
+(assert (= PerforSum  (+ (* PinLeng 0.8)
+                               (* PassStr 0.8)
+                               (* OtpLeng 0.8) 
+                               (* PlateLicense 0.8)
+                               (* Certificate 0.1)
+                               (* SmartCard 0.6)
+                               (* Token 0.5)
+                               (* SignCryp 0.1)
+                               (* GroupSign 0.1)
+                               (* RingSign 0.1)
+                               (* Iris 0.3)
+                               (* Face 0.3)
+                               (* Fingerprint 0.5) )
+                                  ))        
+  
+ ;; Avg Performance 
+ (assert (= AVGPerforSum  (/ PerforSum  count) ))
+(assert (= AvgPerformance AVGPerforSum)    )     
+ 
+;;  AutoLevel
+;; (assert  (ite (>= AVGPerforSum  AutoLevel) 
+;;               (= AvgPerformance AVGPerforSum)   
+;;               (= AvgPerformance AutoLevel))) 
+
+;;;;; Impact of contextual factors on asset value ;;;;;
+
+(declare-fun AssetValue() Real)
+(assert (and (> AssetValue 0) (<= AssetValue 1)))
+
+;; If(> AmbulanceJunction 0)  Ambulance asset value (high 0.8)
+(assert (ite (> AmbulanceJunction 0) (>= AssetValue 0.8) true  )) 
+
+;; If(> PatientInfo 0) PatientInfo asset value (Very high 0.9)                      
+(assert (ite (> PatientInfo 0) (= AssetValue 0.9) true  )) 
+
+;; If (> RoadTrafficInfo 0) RoadTrafficInfo asset value (Medium 0.5) 
+(assert (ite (> RoadTrafficInfo 0) (= AssetValue 0.5) true  )) 
+  
+;; If (> DistanceInfo 0) DistanceInfo asset value (Medium 0.5)                      
+(assert (ite (> DistanceInfo 0) (= AssetValue 0.5) true  )) 
+
+
+
+;;;;;;;;;Contextual factors impact on the requirementPriority;;;;;;;;;                                
+;; Usability Priority high(0.8) medium (0.5) low (0)
+(assert (ite (> AmbulanceJunction 0)  
+             (and (>= EfficPriority 0.9) (>= EffectPriority 0.9) (= PerformancePriority 0.5)) true  ))
+
+;; Security Priority high(0.8) medium (0.5) low (0)                          
+(assert (ite (> PatientInfo 0)  
+        (and (= ConfPriority 0.8) (= AuthentPriority  0.8) (= IntegPriority 0.8)) true ))   
+
+;; Security Priority high(0.8) medium (0.5) low (0)
+(assert (ite (> RoadTrafficInfo 0) 
+             (and (= ConfPriority 0.5) (= AuthentPriority  0.8) (= IntegPriority 0.5) (= PerformancePriority 0.2) (= EffectPriority 0.2) (= EfficPriority 0.2)) true  )) 
+
+;; Security Priority high(0.8) medium (0.5) low (0)                         
+(assert (ite (> DistanceInfo 0)  
+             (and (= ConfPriority 0.5) (= AuthentPriority  0.5) (= IntegPriority 0.5)  ) true ))   
+
+;; Performance Priority high(0.8) medium (0.5) low (0)
+(assert (ite (> NodeMovement 0) (= PerformancePriority 0.8)  true  )) 
+
+;;  If (> NightTime 0) ( (= Iris 0)& (= Face  0) )                   
+(assert (ite (> NightTime 0)  (and (= Iris 0) (= Face  0) ) true ))   
+
+;; (> DistanceInfo 0) (> NodeMovement 0) Performance Priority higher 
+(assert (ite (and (> DistanceInfo 0) (> NodeMovement 0)) (= PerformancePriority 0.8)  true ))  
+
+;;The value of each requirement is equal to the Avg value multiplied the priority
+;; Confidentiality= (AvgConfidentiality * ConfPriority)
+(assert (= Confidentiality (* AvgConfidentiality ConfPriority)))
+
+;; Integrity = (AvgIntegrity * IntegPriority)          
+(assert (= Integrity (* AvgIntegrity IntegPriority))) 
+
+;; Authenticity= (AvgAuthenticity * AuthentPriority) 
+(assert (= Authenticity (* AvgAuthenticity AuthentPriority))) 
+
+;; Efficiency= (AvgEfficiency * EfficPriority)
+(assert (= Efficiency (* AvgEfficiency EfficPriority)))
+
+;; Effectiveness= (AvgEffectiveness * EffectPriority)
+(assert (= Effectiveness (* AvgEffectiveness EffectPriority)))
+
+;; Performance= (AvgPerformance * PerformancePriority)
+(assert (= Performance (* AvgPerformance PerformancePriority))) 
+
+
+
+
+;;;;Attacks
+(declare-fun PImpersAttack() Real)
+(declare-fun FPImpersAttack() Real)
+(declare-fun PRiskPImpersAttack() Real )
+
+(assert (and (<= 0 PImpersAttack ) (<= PImpersAttack 1)))
+(assert (and (<= 0 FPImpersAttack ) (<= FPImpersAttack 1)))
+(assert (and (<= 0 PRiskPImpersAttack ) (<= PRiskPImpersAttack 1)))
+
+(declare-fun PReplayAttack() Real)
+(declare-fun FPReplayAttack() Real)
+(declare-fun PRiskReplayAttack() Real)
+
+(assert (and (<= 0 PReplayAttack ) (<= PReplayAttack 1)))
+(assert (and (<= 0 FPReplayAttack ) (<= FPReplayAttack 1)))
+(assert (and (<= 0 PRiskReplayAttack ) (<= PRiskReplayAttack 1)))
+
+(declare-fun PRiskDoSAttack() Real)
+(declare-fun  PDoSAttack() Real)
+
+(assert (and (<= 0 PDoSAttack ) (<= PDoSAttack 1)))
+(assert (and (<= 0 PRiskDoSAttack ) (<= PRiskDoSAttack 1)))
+
+(declare-fun PRiskTimingAttack() Real)
+(declare-fun  PTimingAttack() Real)
+
+(assert (and (<= 0 PRiskTimingAttack ) (<= PRiskTimingAttack 1)))
+(assert (and (<= 0 PTimingAttack ) (<= PTimingAttack 1)))
+
+
+; If(> PatientInfo 0) PatientInfo asset value (Very high 0.9)                      
+(assert (ite (> PatientInfo 0) (and (> PImpersAttack 0.8) (> PReplayAttack 0.8) (< PRiskDoSAttack 0.2) ) true  )) 
+
+;; If (> RoadTrafficInfo 0) RoadTrafficInfo asset value (Medium 0.5) 
+(assert (ite (> RoadTrafficInfo 0) (and (> PImpersAttack 0.8) (> PReplayAttack 0.8) (< PRiskDoSAttack 0.2) (< PRiskTimingAttack 0.2)) true  )) 
+  
+;; If (> DistanceInfo 0) DistanceInfo asset value (Medium 0.5)                      
+(assert (ite (> DistanceInfo 0) (and (> PImpersAttack 0.8) (> PReplayAttack 0.8) (< PRiskDoSAttack 0.2) (< PRiskTimingAttack 0.2)) true  ))
+
+
+
+;; increase the attack risk when V2Vtopology & V2Rtopology & V2Itopology are 1
+(assert (ite (> V2Vtopology 0)  (and  (> PImpersAttack 0.6) (> PReplayAttack 0.6)(< PRiskDoSAttack 0.2) (< PRiskTimingAttack 0.2)) true  ))
+(assert (ite (> V2Rtopology 0)  (and (> PDoSAttack 0.3) (> PReplayAttack 0.7) (< PRiskTimingAttack 0.2) ) true ))
+(assert (ite (> V2Itopology 0)  (and (> PTimingAttack 0.7) (< PRiskDoSAttack 0.2) )  true ))    
+
+
+
+(declare-fun  ImpersAttackImpact () Real) 
+(declare-fun  ReplayAttackImpact () Real) 
+
+(declare-fun  TotalRisk () Real)
+
+
+(assert (and (<= 0 TotalRisk ) (<= TotalRisk 1)))
+
+
+ ;; AVG (authentication methods impact on the PImpersAttack psitive (0.5) very positively (0.8) , negative (0.3), very negative(0.1) and not impact (0)                          
+(assert (<= ImpersAttackImpact (/ (+ (* PinLeng 0.3)
+                               (* PassStr 0.3)
+                               (* OtpLeng 0.3) 
+                               (* PlateLicense 0.1)
+                               (* Certificate 0.7)
+                               (* SmartCard 0.3)
+                               (* Token 0.3)
+                               (* SignCryp 0.1)
+                               (* GroupSign 0.1)
+                               (* RingSign 0.1)
+                               (* Iris 0.1)
+                               (* Face 0.1)
+                               (* Fingerprint 0.1) ) count )
+                                  ))  
+
+;;PPImpersAttack=(PkPImpersAttack - ImpersAttackImpact)
+(assert (=  FPImpersAttack (- PImpersAttack ImpersAttackImpact ))) 
+
+;; AVG (authentication methods impact on the PImpersAttack psitive (0.5) very positively (0.8) , negative (0.3), very negative(0.1) and not impact (0)                          
+(assert (<= ReplayAttackImpact (/ (+ (* PinLeng 0.3)
+                               (* PassStr 0.3)
+                               (* OtpLeng 0.1) 
+                               (* PlateLicense 0.1)
+                               (* Certificate 0.7)
+                               (* SmartCard 0.3)
+                               (* Token 0.1)
+                               (* SignCryp 0.1)
+                               (* GroupSign 0.1)
+                               (* RingSign 0.1)
+                               (* Iris 0.1)
+                               (* Face 0.1)
+                               (* Fingerprint 0.1) ) count )
+                                  ))  
+;;Final PReplayAttack  =(PReplayAttack - ReplayAttackImpact )
+(assert (= FPReplayAttack (- PReplayAttack  ReplayAttackImpact )))
+
+;;likelihood of the attack = Probability of attack * Asset value 
+(assert (= PRiskPImpersAttack (* FPImpersAttack AssetValue) ) )
+(assert (= PRiskPImpersAttack (* FPImpersAttack AssetValue) ) )
+(assert (= PRiskDoSAttack  (* PDoSAttack AssetValue) ) )
+(assert (= PRiskTimingAttack (* PTimingAttack AssetValue) ) )
+
+;;TotalRisk=MAX(PRiskPImpersAttack  PRiskReplayAttack PRiskDoSAttack PRiskTimingAttack)
+(assert (= TotalRisk (ite (>= PRiskPImpersAttack PRiskReplayAttack ) (ite (>= PRiskPImpersAttack  PRiskDoSAttack  ) 
+                     (ite (>= PRiskPImpersAttack  PRiskTimingAttack) PRiskPImpersAttack PRiskTimingAttack) 
+                     (ite (>= PRiskDoSAttack PRiskTimingAttack ) PRiskDoSAttack PRiskTimingAttack)) 
+                     (ite (>= PRiskReplayAttack PRiskDoSAttack) 
+	             (ite (>= PRiskReplayAttack PRiskTimingAttack) PRiskReplayAttack PRiskTimingAttack) 
+		     (ite (>= PRiskDoSAttack  PRiskTimingAttack) PRiskDoSAttack  PRiskTimingAttack)))))
+
+;; Utility=AVG(Security  Usability Performance (- 1 TotalRisk))
+(assert (<= Utility (/ (+ Security  Usability Performance (- 1 TotalRisk)) 4))) 
+
+
+
+
+
+
+(assert (= V2Rtopology 1))
+(assert (> RoadTrafficInfo 0))
+(assert (= AmbulanceJunction 0))
+(assert (= PatientInfo 0))
+(assert (= DistanceInfo 0))
+(assert (= NightTime 0))
+(assert (= NodeMovement  0))
+
+
+
+
+;;Utility for Certificate + Face Authentication
+;;(assert (> Utility 0.36))
+
+;;(assert (> Utility 0.3))
+;;(assert (> PlateLicense 0))
+;;(assert (= TwoFactor 0))
+
+;;(assert (> Utility 0.35))
+;;(assert (> PlateLicense 0))
+;;(assert (> Fingerprint 0))
+;;(assert (= TwoFactor 1))
+
