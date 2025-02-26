@@ -1,4 +1,4 @@
-# AdaptiveAuthentication
+# AdaptiveAuthentication Project
 The Adaptive Authentication project provides an automated tool to select security controls that minimize security risks and satisfy security and other requirements such as usability and performance.
 We use a Fuzzy Causal Network (FCN) encoded using Z3 SMT solver to reason about the impact of contextual factors on security risks and requirements priorities and select an effective
 authentication method that can be applied in the given context.
@@ -15,3 +15,37 @@ and RSU) takes precedence over usability and performance considerations.
 To mitigate the risk of impersonation attacks, our tool suggests to employ certificate-based authentication to authenticate the
 the ambulance with the RSU.
 
+## Scenario 2
+In the second scenario, the ambulance attempts to overtake a car. This requires exchanging
+distance information between the ambulance and nearby vehicles using a Vehicle-to-Vehicle
+(V2V) communication topology. Ensuring the integrity of this distance information is critical to preventing collisions.
+Also, the exchange must happen quickly to enable the ambulance to overtake the car without delay. Here,
+performance requirements, such as minimizing authentication time, are prioritized over security and usability concerns.
+Certificate-based authentication is unsuitable in this case, as it may involve lengthy identity verification through a remote server. Instead, our tool recommends using car plates and driver's license for authentication since they offer faster authentication while reducing the risk of impersonation attacks.
+
+## Scenario 3
+In the third scenario, the ambulance driver is approaching a junction and accessing patient information through a Vehicle-to-Infrastructure
+(V2I) connection via cellular networks. Since the information is sensitive, ensuring its confidentiality is
+crucial. At the same time, usability is also a key consideration, as the authentication process should not distract the
+driver, who needs to remain focused on navigating the junction. Our tool recommends using two-factor authentication based on a biometrics-based authentication method combined with a car plate and driver's license since these are automated and do not require the driver to perform an action (e.g., type a password or swipe a card).
+
+# Project Structure
+|
+|-- run.sh
+|
+|-- Scenario1 
+      |-- model-zu-1.txt
+|
+|-- Scenario2 
+      |-- model-zu-2.txt
+|
+|-- Scenario3
+      |-- model-zu-3.txt
+
+*run.sh* This is the script which computes the authentication method that provides the best utility
+
+*model-zu-1.txt* is the Z3 model representing Scenario 1
+
+*model-zu-2.txt* is the Z3 model representing Scenario 2
+
+*model-zu-3.txt* is the Z3 model representing Scenario 3
