@@ -30,17 +30,17 @@ crucial. At the same time, usability is also a key consideration, as the authent
 driver, who needs to remain focused on navigating the junction. Our tool recommends using two-factor authentication based on a biometrics-based authentication method combined with a car plate and driver's license since these are automated and do not require the driver to perform an action (e.g., type a password or swipe a card).
 
 # Project Structure
-|
-|-- run.sh
-|
-|-- Scenario1 
-      |-- model-zu-1.txt
-|
-|-- Scenario2 
-      |-- model-zu-2.txt
-|
-|-- Scenario3
-      |-- model-zu-3.txt
+| <br />
+|-- run.sh<br />
+|<br />
+|-- Scenario1 <br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |-- model-zu-1.txt<br />
+|<br />
+|-- Scenario2 <br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      |-- model-zu-2.txt<br />
+|<br />
+|-- Scenario3<br />
+ &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |-- model-zu-3.txt<br />
 
 *run.sh* This is the script which computes the authentication method that provides the best utility
 
