@@ -31,7 +31,7 @@ driver, who needs to remain focused on navigating the junction. Our tool recomme
 
 # Project Structure
 | <br />
-|-- run.sh<br />
+|-- adaptive_auth.py<br />
 |<br />
 |-- Scenario1 <br />
 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |-- model-zu-1.txt<br />
@@ -42,7 +42,7 @@ driver, who needs to remain focused on navigating the junction. Our tool recomme
 |-- Scenario3<br />
  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |-- model-zu-3.txt<br /><br />
 
-*run.sh* This is a bash script which computes the authentication method that provides the best utility
+*adaptive_auth.py* This is a bash script which computes the authentication method that provides the best utility
 
 *model-zu-1.txt* is the Z3 model representing Scenario 1
 
@@ -51,13 +51,14 @@ driver, who needs to remain focused on navigating the junction. Our tool recomme
 *model-zu-3.txt* is the Z3 model representing Scenario 3
 
 # Installation Requirements
-1) Install the Z3 theorem prover on your machine (See https://github.com/z3prover/z3).
-2) Ensure that the z3 command (e.g., z3.sh or z3.exe) is in the PATH environment variable.
+1) Install Python v3.
+2) Install the Z3 theorem prover on your machine (See https://github.com/z3prover/z3).
+3) Ensure that the z3 command (e.g., z3.sh or z3.exe) is in the PATH environment variable.
 
 # Run the Adaptive Authentication Scenarios
 1) Using your terminal, go to the AdaptiveAuthentication project folder.
 2) To run Scenario 1-3, respectively execute commands <br />
-  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *./run.sh 1* <br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *./run.sh 2* <br />
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *./run.sh 3*
+  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *python adaptive_auth.py 1* <br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *python adaptive_auth.py 2* <br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *python adaptive_auth.py 3*
    
