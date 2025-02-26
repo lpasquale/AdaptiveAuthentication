@@ -42,10 +42,19 @@ driver, who needs to remain focused on navigating the junction. Our tool recomme
 |-- Scenario3<br />
  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |-- model-zu-3.txt<br /><br />
 
-*run.sh* This is the script which computes the authentication method that provides the best utility
+*run.sh* This is a bash script which computes the authentication method that provides the best utility
 
 *model-zu-1.txt* is the Z3 model representing Scenario 1
 
 *model-zu-2.txt* is the Z3 model representing Scenario 2
 
 *model-zu-3.txt* is the Z3 model representing Scenario 3
+
+# Installation Requirements
+1) Install the Z3 theorem prover on your machine (See https://github.com/z3prover/z3).
+2) Ensure that the z3 command (e.g., z3.sh or z3.exe) is in the PATH environment variable.
+
+# Run the Adaptive Authentication Scenarios
+1) Using your terminal, go to the AdaptiveAuthentication project folder.
+2) To run Scenario 1-3, execute commands "./run.sh 1", "./run.sh 2", and "./run.sh 3", respectively.
+   
