@@ -56,5 +56,8 @@ driver, who needs to remain focused on navigating the junction. Our tool recomme
 
 # Run the Adaptive Authentication Scenarios
 1) Using your terminal, go to the AdaptiveAuthentication project folder.
-2) To run Scenario 1-3, execute commands "./run.sh 1", "./run.sh 2", and "./run.sh 3", respectively.
+2) To run Scenario 1-3, respectively execute commands
+  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *% ./run.sh 1 * <br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *%./run.sh 2 * <br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *%./run.sh 3*
    
