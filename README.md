@@ -11,7 +11,7 @@ The ambulance requires real-time road traffic information to reach the hospital 
 communicates with the nearest RSUs using a Vehicle-to-Roadside Units (V2R) communication topology (see Figure 1a).
 However, nearby vehicles may attempt to impersonate the ambulance to obtain road traffic information illegitimately. In
 this scenario, ensuring the confidentiality of traffic data and the authenticity of the communicating parties (ambulance
-and RSU) takes precedence over usability and performance considerations. To mitigate the risk of impersonation attacks,
-the ambulance and RSU should employ secure methods such as certificate-based or signcryption-based authentication
-before exchanging information.
+and RSU) takes precedence over usability and performance considerations. 
+To mitigate the risk of impersonation attacks, our tool suggests to employ certificate-based authentication to authenticate the
+the ambulance with the RSU.
 
