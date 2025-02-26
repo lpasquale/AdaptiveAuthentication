@@ -40,7 +40,7 @@ driver, who needs to remain focused on navigating the junction. Our tool recomme
 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      |-- model-zu-2.txt<br />
 |<br />
 |-- Scenario3<br />
- &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |-- model-zu-3.txt<br />
+ &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |-- model-zu-3.txt<br /><br />
 
 *run.sh* This is the script which computes the authentication method that provides the best utility
 
