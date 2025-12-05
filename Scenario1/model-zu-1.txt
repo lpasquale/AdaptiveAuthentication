@@ -515,41 +515,41 @@
 (assert (ite (> AmbulanceJunction 0) (>= AssetValue 0.8) true  )) 
 
 ;; If(> PatientInfo 0) PatientInfo asset value (Very high 0.9)                      
-(assert (ite (> PatientInfo 0) (= AssetValue 0.9) true  )) 
+(assert (ite (> PatientInfo 0) (= AssetValue 0.9) true ))
 
 ;; If (> RoadTrafficInfo 0) RoadTrafficInfo asset value (Medium 0.5) 
-(assert (ite (> RoadTrafficInfo 0) (= AssetValue 0.5) true  )) 
+(assert (ite (> RoadTrafficInfo 0) (and (> AssetValue 0.4) (<= AssetValue 0.6)) true))
   
 ;; If (> DistanceInfo 0) DistanceInfo asset value (Medium 0.5)                      
-(assert (ite (> DistanceInfo 0) (= AssetValue 0.5) true  )) 
+(assert (ite (> DistanceInfo 0) (and (> AssetValue 0.4) (<= AssetValue 0.6)) true  )) 
 
 
 
 ;;;;;;;;;Contextual factors impact on the requirementPriority;;;;;;;;;                                
-;; Usability Priority high(0.8) medium (0.5) low (0)
+;; Usability Priority high(0.8 -1.0) medium (0.5) low (0)
 (assert (ite (> AmbulanceJunction 0)  
-             (and (>= EfficPriority 0.9) (>= EffectPriority 0.9) (= PerformancePriority 0.5)) true  ))
+             (and (> EfficPriority 0.8) (> EffectPriority 0.8) (and (> PerformancePriority 0.4) (<= PerformancePriority 0.6))) true  ))
 
 ;; Security Priority high(0.8) medium (0.5) low (0)                          
 (assert (ite (> PatientInfo 0)  
-        (and (= ConfPriority 0.8) (= AuthentPriority  0.8) (= IntegPriority 0.8)) true ))   
+        (and (> ConfPriority 0.8) (> AuthentPriority  0.8) (> IntegPriority 0.8)) true ))   
 
 ;; Security Priority high(0.8) medium (0.5) low (0)
-(assert (ite (> RoadTrafficInfo 0) 
-             (and (= ConfPriority 0.5) (= AuthentPriority  0.8) (= IntegPriority 0.5) (= PerformancePriority 0.2) (= EffectPriority 0.2) (= EfficPriority 0.2)) true  )) 
+(assert (ite (> RoadTrafficInfo 0)
+             (and (= ConfPriority 0.5) (= AuthentPriority  0.5) (= IntegPriority 0.8) (= PerformancePriority 0.2) (= EffectPriority 0.2) (= EfficPriority 0.2)) true  ))
 
 ;; Security Priority high(0.8) medium (0.5) low (0)                         
 (assert (ite (> DistanceInfo 0)  
-             (and (= ConfPriority 0.5) (= AuthentPriority  0.5) (= IntegPriority 0.5)  ) true ))   
+             (and (= ConfPriority 0.2) (and (> AuthentPriority  0.4) (<= AuthentPriority  0.6)) (> IntegPriority 0.8)  ) true ))   
 
 ;; Performance Priority high(0.8) medium (0.5) low (0)
-(assert (ite (> NodeMovement 0) (= PerformancePriority 0.8)  true  )) 
+(assert (ite (> NodeMovement 0) (> PerformancePriority 0.8)  true  )) 
 
 ;;  If (> NightTime 0) ( (= Iris 0)& (= Face  0) )                   
 (assert (ite (> NightTime 0)  (and (= Iris 0) (= Face  0) ) true ))   
 
 ;; (> DistanceInfo 0) (> NodeMovement 0) Performance Priority higher 
-(assert (ite (and (> DistanceInfo 0) (> NodeMovement 0)) (= PerformancePriority 0.8)  true ))  
+(assert (ite (and (> DistanceInfo 0) (> NodeMovement 0)) (> PerformancePriority 0.8)  true ))  
 
 ;;The value of each requirement is equal to the Avg value multiplied the priority
 ;; Confidentiality= (AvgConfidentiality * ConfPriority)
