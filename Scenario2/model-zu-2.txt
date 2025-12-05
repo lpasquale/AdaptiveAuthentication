@@ -536,20 +536,24 @@
 
 ;; Security Priority high(0.8) medium (0.5) low (0)
 (assert (ite (> RoadTrafficInfo 0) 
-             (and (= ConfPriority 0.5) (= AuthentPriority  0.8) (= IntegPriority 0.5) (= PerformancePriority 0.2) (= EffectPriority 0.2) (= EfficPriority 0.2)) true  )) 
+             (and (= ConfPriority 0.5) (= AuthentPriority  0.5) (= IntegPriority 0.8) (= PerformancePriority 0.2) (= EffectPriority 0.2) (= EfficPriority 0.2)) true  ))
 
-;; Security Priority high(0.8) medium (0.5) low (0)                         
-(assert (ite (> DistanceInfo 0)  
-             (and (= ConfPriority 0.5) (= AuthentPriority  0.5) (= IntegPriority 0.5)  ) true ))   
+;; Security Priority high(0.8) medium (0.5) low (0)
+(assert (ite (> DistanceInfo 0)
+             (and (= ConfPriority 0.2) (and (> AuthentPriority  0.4) (<= AuthentPriority  0.6)) (> IntegPriority 0.8)  ) true ))
+
+;; Security Priority high(0.8) medium (0.5) low (0)
+;;(assert (ite (> DistanceInfo 0)
+             (and (= ConfPriority 0.5) (= AuthentPriority  0.5) (= IntegPriority 0.5)  ) true ))
 
 ;; Performance Priority high(0.8) medium (0.5) low (0)
-(assert (ite (> NodeMovement 0) (= PerformancePriority 0.8)  true  )) 
+(assert (ite (> NodeMovement 0) (> PerformancePriority 0.8)  true  ))
 
 ;;  If (> NightTime 0) ( (= Iris 0)& (= Face  0) )                   
 (assert (ite (> NightTime 0)  (and (= Iris 0) (= Face  0) ) true ))   
 
 ;; (> DistanceInfo 0) (> NodeMovement 0) Performance Priority higher 
-(assert (ite (and (> DistanceInfo 0) (> NodeMovement 0)) (= PerformancePriority 0.8)  true ))  
+(assert (ite (and (> DistanceInfo 0) (> NodeMovement 0)) (> PerformancePriority 0.8)  true ))  
 
 ;;The value of each requirement is equal to the Avg value multiplied the priority
 ;; Confidentiality= (AvgConfidentiality * ConfPriority)
