@@ -1,0 +1,7 @@
+# AdaptiveAuthentication Project
+The Adaptive Authentication project provides an automated tool to select security controls that minimize security risks and satisfy security and other requirements such as usability and performance.
+We use a Fuzzy Causal Network (FCN) encoded using Z3 SMT solver to reason about the impact of contextual factors on security risks and requirements priorities and select an effective
+authentication method that can be applied in the given context.
+
+In this repository, we demonstrate our tool using an example from the Internet of Vehicles (IoVs) and healthcare case studies. The IoV network is a heterogeneous vehicular network combining inter-vehicle and intra-vehicle
+networks and vehicular mobile Internet. An IoV network can include users (e.g., drivers, passengers, and pedestrians), vehicles (e.g., cars, buses) and devices (e.g., mobile devices, roadside units or RSUs). The Healthcare information systems manage highly sensitive, safety-critical patient data across interconnected components, including electronic health records, prescription platforms, and administrative systems. These systems are accessed by multiple users with different roles, including clinicians and administrative staff, operating under dynamic conditions such as shared workstations, remote access, shift changes, and emergency situations. We consider 3 scenarios for each case study.
