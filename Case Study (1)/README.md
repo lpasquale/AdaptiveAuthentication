@@ -1,4 +1,4 @@
-# AdaptiveAuthentication Project
+# Adaptive Authentication Project
 The Adaptive Authentication project provides an automated tool to select security controls that minimize security risks and satisfy security and other requirements such as usability and performance.
 We use a Fuzzy Causal Network (FCN) encoded using Z3 SMT solver to reason about the impact of contextual factors on security risks and requirements priorities and select an effective
 authentication method that can be applied in the given context.
@@ -12,8 +12,7 @@ communicates with the nearest RSUs using a Vehicle-to-Roadside Units (V2R) commu
 However, nearby vehicles may attempt to impersonate the ambulance to obtain road traffic information illegitimately. In
 this scenario, ensuring the confidentiality of traffic data and the authenticity of the communicating parties (ambulance
 and RSU) takes precedence over usability and performance considerations. 
-To mitigate the risk of impersonation attacks, our tool suggests to employ certificate-based authentication to authenticate the
-the ambulance with the RSU.
+To mitigate the risk of impersonation attacks, our tool suggests to employ certificate-based authentication to authenticate the ambulance with the RSU.
 
 ## Scenario 2
 In the second scenario, the ambulance attempts to overtake a car. This requires exchanging
